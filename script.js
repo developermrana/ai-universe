@@ -69,8 +69,8 @@ const showMoreDetail = (data) => {
 
  
   document.getElementById("modal-body").innerHTML = `
-    <div class="d-md-flex  gap-4 ">
-        <div class="order-0 border border-danger mb-4 sm-mb-0 p-3">
+    <div class=" d-md-flex gap-4">
+        <div class="border border-danger mb-4 sm-mb-0 p-3 w-100 md-w-50">
             <h4>${description}</h4>
             <div class=" d-flex flex-wrap gap-4 justify-content-center py-4">
                 <div class="p-2 bg-primary-subtle text-center">
@@ -107,7 +107,7 @@ const showMoreDetail = (data) => {
                 </div>
             </div>
           </div>
-          <div>
+          <div class="w-100 md-w-50">
             <div class="position-relative">
               <img src="${image_link[0] ? image_link[0] : 'No img'}" class="card-img-top" alt="...">
               <button class="btn btn-danger position-absolute top-0 end-0">
