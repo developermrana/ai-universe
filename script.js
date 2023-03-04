@@ -48,14 +48,19 @@ const allData = (datas, dataLength) => {
   spinner(false);
 };
 
-
+// more details modal
+const fetchMoreDetail = (id) => {
+  const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => showMoreDetail(data.data));
+};
 
 // show more btn event
 document.getElementById("show-more-btn").addEventListener("click", function () {
   spinner(true);
   fetchAllData();
 });
-
 
 // show spinner
 const spinnerContainer = document.getElementById("spinner");
