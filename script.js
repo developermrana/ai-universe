@@ -56,6 +56,62 @@ const fetchMoreDetail = (id) => {
     .then((data) => showMoreDetail(data.data));
 };
 
+const showMoreDetail = (data) => {
+  const {
+    description,
+    pricing,
+    features,
+    integrations,
+    image_link,
+    input_output_examples,
+    accuracy
+  } = data;
+
+ 
+  document.getElementById("modal-body").innerHTML = `
+    <div class="d-md-flex  gap-4 ">
+        <div class="order-0 border border-danger mb-4 sm-mb-0 p-3">
+            <h4>${description}</h4>
+            <div class=" d-flex flex-wrap gap-4 justify-content-center py-4">
+                <div class="p-2 bg-primary-subtle text-center">
+                     <p>${
+                       pricing ? pricing[0].price : "free of cost"
+                     }</p>
+                     <p>${pricing ? pricing[0].plan : ""}</p>
+                </div>                       
+                <div class="p-2 bg-danger-subtle text-center">
+                     <p>${
+                       pricing ? pricing[1].price : "free of cost"
+                     }</p>
+                     <p>${pricing ? pricing[1].plan : ""}</p>
+                </div>                       
+                <div class="p-2 bg-info-subtle text-center">
+                     <p>${
+                       pricing ? pricing[2].price : "free of cost"
+                     }</p>
+                     <p>${pricing ? pricing[2].plan : ""}</p>
+                </div>                       
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h5>Features</h5>
+                    <p>${features ? '1. '+ features[1].feature_name :  'No feature'}</p>
+                    <p>${features ? '2. '+ features[2].feature_name :  ''}</p>
+                    <p>${features ? '3. '+ features[3].feature_name :  ''}</p>
+                </div>
+                <div>
+                    <h5>Integrations</h5>
+                    <p> ${integrations ? '1. '+ integrations[0] : "no data found"}</p>
+                    <p> ${integrations ? '2. '+integrations[1] : ""}</p>
+                    <p> ${integrations ? '3. '+integrations[2] : ""}</p>
+                </div>
+            </div>
+          </div>
+         
+    </div>
+   `;
+};
+
 // show more btn event
 document.getElementById("show-more-btn").addEventListener("click", function () {
   spinner(true);
