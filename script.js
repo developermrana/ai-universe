@@ -9,7 +9,14 @@ const allData = (datas, dataLength) => {
   const allDataSection = document.getElementById("all-data");
   allDataSection.innerHTML = "";
 
- 
+  //   check datas length
+  const showAllContainer = document.getElementById("show-all");
+  if (datas.length > 6 && dataLength) {
+    datas = datas.slice(0, 6);
+    showAllContainer.classList.remove("d-none");
+  } else {
+    showAllContainer.classList.add("d-none");
+  }
 
   datas.forEach((data) => {
     const { image, features, name, published_in, id } = data;
@@ -40,3 +47,11 @@ const allData = (datas, dataLength) => {
   });
   spinner(false);
 };
+
+
+
+// show more btn event
+document.getElementById("show-more-btn").addEventListener("click", function () {
+  spinner(true);
+  fetchAllData();
+});
