@@ -55,3 +55,14 @@ document.getElementById("show-more-btn").addEventListener("click", function () {
   spinner(true);
   fetchAllData();
 });
+
+
+// show spinner
+const spinnerContainer = document.getElementById("spinner");
+const spinner = (isLoading) => {
+  if (isLoading) {
+    spinnerContainer.classList.remove("d-none");
+  } else {
+    spinnerContainer.classList.add("d-none");
+  }
+};
