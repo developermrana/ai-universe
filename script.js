@@ -107,7 +107,26 @@ const showMoreDetail = (data) => {
                 </div>
             </div>
           </div>
-         
+          <div>
+            <div class="position-relative">
+              <img src="${image_link[0] ? image_link[0] : 'No img'}" class="card-img-top" alt="...">
+              <button class="btn btn-danger position-absolute top-0 end-0">
+                ${accuracy.score?accuracy.score+' accuracy':''}
+              </button>
+            </div>
+            <div class="my-5">
+              <h3 class="card-title">${
+                input_output_examples
+                  ? input_output_examples[0].input
+                  : "no data found"
+              }</h3>
+              <p class="card-title pt-3">${
+                input_output_examples
+                  ? input_output_examples[0].output
+                  : "no data found"
+              }</p>
+            </div>
+        </div>
     </div>
    `;
 };
